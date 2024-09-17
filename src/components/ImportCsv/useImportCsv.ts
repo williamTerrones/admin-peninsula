@@ -1,16 +1,16 @@
 import excelRenderer from "../../utils/excelRenderer"
 import { showToastError, showToastSuccess } from "../../utils/toast"
-import { TypeCsv } from "./props"
 import { useState } from 'react';
 import { importCsvList } from '../../services/report';
+import { TypeOfReport } from "../../models/csv";
 
-const useImportCsv = (type: TypeCsv) => {
+const useImportCsv = (type: TypeOfReport) => {
 
     const [loading, setLoading] = useState(false)
 
     const isCorrectSize = (rows: any[][]) => {
 
-        const size = 1
+        const size = type==='leads' ? 7 : 4
 
         if (rows[0].length !== size) {
             showToastError("El formato de csv es incorrecto " + type)

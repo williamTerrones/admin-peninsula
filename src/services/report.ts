@@ -1,6 +1,4 @@
 import serverApi from '../api/serverApi';
-import { TypeCsv } from '../components/ImportCsv/props';
-import { IncidentCsv } from '../models/incident';
 import { Lead, LeadCsv } from '../models/code';
 import { TypeOfReport } from '../models/csv';
 
@@ -22,27 +20,35 @@ export const getReportData = async (type: TypeOfReport) => {
 }
 
 
-export const importCsvList = async (rows: Rows, type: TypeCsv) => {
+export const importCsvList = async (rows: Rows, type: TypeOfReport) => {
 
     rows.splice(0, 1)
 
     const list = getList(rows, type)
-    const payload = {
-        list,
-    }
 
-    const { data } = await serverApi.post(`/${type}s/import-list`, payload)
+    const { data } = await serverApi.post(`/${type}/import`, list)
+
+    console.log({data})
 
     return data
 
 }
 
-const getCodeList = (rows: Rows): LeadCsv[] => rows.map(e => ({
+const getLeadList = (rows: Rows): LeadCsv[] => rows.map(e => ({
     name: e[0],
+    email: e[1],
+    mobile: e[2],
+    form: e[3],
+    leadSource:e[4],
+    platform:e[5],
+    sourceUrl: e[6],
 }))
 
-const getAwardList = (rows: Rows): IncidentCsv[] => rows.map(e => ({
-    tagstagsStatus: e[0],
+const getIncidentList = (rows: Rows) => rows.map(e => ({
+    status: e[0],
+    sourceUrl:e[1],
+    tagsStatus:[{tag:e[2]}],
+    leadId:e[3]
 }))
 
-const getList = (rows: Rows, type: TypeCsv) => type === 'code' ? getCodeList(rows) : getAwardList(rows)
+const getList = (rows: Rows, type: TypeOfReport) => type === 'leads' ? getLeadList(rows) : getIncidentList(rows)

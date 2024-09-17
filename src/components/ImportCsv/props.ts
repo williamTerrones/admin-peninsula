@@ -1,10 +1,10 @@
+import { TypeOfReport } from "../../models/csv";
+
 export interface ImportCsvPropsBase {
     label: string,
     icon: string,
 }
 
-export type TypeCsv = 'code' | 'award'
- 
 export interface ImportCsvProps extends ImportCsvPropsBase {
-    type: TypeCsv,
+    type: TypeOfReport,
 }
