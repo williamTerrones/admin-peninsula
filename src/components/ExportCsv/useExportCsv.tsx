@@ -1,14 +1,15 @@
 import { useState } from "react"
-import { AwardCsv } from "../../models/award"
-import { Code } from "../../models/code"
-import { getCodes } from "../../services/codes"
+import { IncidentCsv } from "../../models/incident"
+import { getReportData } from "../../services/report"
 import { showToastError } from "../../utils/toast"
 import { getCsvReportHeaders } from "./utils"
+import { TypeOfReport } from "../../models/csv"
+import { Lead } from "../../models/code"
 
-const useExportCsv = (refCSV:React.MutableRefObject<any>, type:'codes' | 'awards' | 'participant' | 'interested') => {
+const useExportCsv = (refCSV:React.MutableRefObject<any>, type:TypeOfReport) => {
 
     const [loading, setLoading] = useState(false)
-    const [data, setData] = useState<Code[] | AwardCsv[]>([])
+    const [data, setData] = useState<Lead[] | IncidentCsv[]>([])
 
     const getCsvReport = () => ({
         data: data,
@@ -16,14 +17,14 @@ const useExportCsv = (refCSV:React.MutableRefObject<any>, type:'codes' | 'awards
         filename: `reporte-${type}.csv`
     })
 
-    const loadCodes = async () => {
+    const loadReportData = async () => {
 
         setLoading(true)
 
         try {
 
-            const codes = await getCodes(type)
-            setData(codes)
+            const dataApi = await getReportData(type)
+            setData(dataApi)
             refCSV?.current?.link?.click()
 
         } catch (e) {
@@ -36,7 +37,7 @@ const useExportCsv = (refCSV:React.MutableRefObject<any>, type:'codes' | 'awards
     }
 
     return {
-        loadCodes,
+        loadReportData,
         getCsvReport,
         loading,
     }

@@ -1,11 +1,10 @@
-import { AWARDS_HEADER, CODES_HEADER, INTERESTED_HEADERS, PARTICIPANT_HEADERS } from "./constants"
+import { TypeOfReport } from "../../models/csv"
+import { INCIDENTES_HEADERS, LEADS_HEADER } from "./constants"
 
-export const getCsvReportHeaders = (type: 'codes' | 'awards' | 'participant' | 'interested') => {
+export const getCsvReportHeaders = (type: TypeOfReport) => {
     
-    if (type === 'codes') return CODES_HEADER
-    if(type==='interested') return INTERESTED_HEADERS
-    if(type==='participant') return PARTICIPANT_HEADERS
+    if (type === 'leads') return LEADS_HEADER
 
-    return AWARDS_HEADER
+    return INCIDENTES_HEADERS
 
 }

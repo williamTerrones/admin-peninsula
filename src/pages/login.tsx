@@ -17,7 +17,7 @@ export const Login = () => {
         
         await delay()
 
-        if( !(user==='admin-crediviaja' && password==='FWqRActZfuAd)B9N') ) {
+        if( !(user==='admin-peninsula' && password==='FWqRActZfuAd)B9N') ) {
             setLoading(false)
             return showToastError("Las credenciales son incorrecta")
         }

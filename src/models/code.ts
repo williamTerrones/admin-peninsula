@@ -1,26 +1,15 @@
-type CodeStatus = 'Activo' | 'Redimido'
-
-interface Timestamp {
-    seconds:number,
-    nanoseconds:number,
+export interface LeadCsv {
+    name:string,
 }
 
-interface UserInfo {
-    nombre:string,
-    email:string,
-    telefono:string,
-}
-
-export interface CodeCsv {
-    codigo:string,
-}
-
-export interface Code extends CodeCsv {
-    estatus:CodeStatus,
-    fechaInicio?:Timestamp,
-    fechaFin?:Timestamp,
-    fechaRegistro:Timestamp,
-    infoUsuario?:UserInfo,
-    idCampania:string,
-    respuestaCorrecta:boolean,
+export interface Lead extends LeadCsv {
+    creationDate:string
+    email:string
+    form:string
+    incidentId:string
+    leadSource:string
+    mobile:string
+    platform:string
+    sourceUrl:string
+    totalOfIncidents:number
 }

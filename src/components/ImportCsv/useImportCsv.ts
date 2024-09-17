@@ -2,7 +2,7 @@ import excelRenderer from "../../utils/excelRenderer"
 import { showToastError, showToastSuccess } from "../../utils/toast"
 import { TypeCsv } from "./props"
 import { useState } from 'react';
-import { importCsvList } from '../../services/codes';
+import { importCsvList } from '../../services/report';
 
 const useImportCsv = (type: TypeCsv) => {
 

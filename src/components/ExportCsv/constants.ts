@@ -1,49 +1,21 @@
-export const CODES_HEADER = [
-    { label: "Código", key: "codigo" },
-    { label: "Fecha registro", key: "fechaRegistro" },
-]
-
-export const PARTICIPANT_HEADERS = [
-    { label: "Nombre", key: "nombre" },
-    { label: "Apellidos", key: "apellidos" },
-    { label: "Teléfono", key: "telefono" },
-    { label: "Código", key: "idCodigo" },
-    { label: "Premio", key: "idPremio" },
+export const LEADS_HEADER = [
+    { label: "Id", key: "_id" },
+    { label: "Nombre", key: "name" },
     { label: "Email", key: "email" },
-    { label: "Fecha registro", key: "fechaRegistro" },
-    { label: "Fecha código redimido", key: "fechaCodigoRedimido" },
+    { label: "Teléfono", key: "mobile" },
+    { label: "Form", key: "form" },
+    { label: "Lead Source", key: "leadSource" },
+    { label: "Plataforma", key: "platform" },
+    { label: "sourceUrl", key: "sourceUrl" },
+    { label: "Total de incidencias", key: "totalOfIncidents" },
+    { label: "Fecha de registro", key: "creationDate" },
 ]
 
-export const INTERESTED_HEADERS = [
-    { label: "Apellidos", key: "apellidos" },
-    { label: "Nombre", key: "nombre" },
-    { label: "Celular", key: "celular" },
-    { label: "Email", key: "email" },
-    { label: "Está en buró de crédito", key: "estaEnBuroCredito" },
-    { label: "Motivo de la tarjeta", key: "motivoTarjeta" },
-    { label: "Tarjetas adiciionales", key: "tarjetasAdicionales" },
-    { label: "Fecha registro", key: "fechaRegistro" },
-]
-
-export const AWARDS_HEADER = [
-    {
-        key:"estatus",
-        label:"Estatus",
-    },
-    {
-        key:"premio",
-        label:"Premio",
-    },
-    {
-        key:"codigoPremio",
-        label:"Código premio",
-    },
-    {
-        key:"gama",
-        label:"Gama",
-    },
-    {
-        key:"linkCanje",
-        label:"Link de canje"
-    }
+export const INCIDENTES_HEADERS = [
+    { label: "Id", key: "_id" },
+    { label: "Estatus", key: "status" },
+    { label: "Tags", key: "tagsStatus" },
+    { label: "Source url", key: "sourceUrl" },
+    { label: "Id lead", key: "leadId" },
+    { label: "Fecha de registro", key: "creationDate" },
 ]
