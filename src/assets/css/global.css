@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn{
+        @apply text-white font-bold rounded-full;
+    }
+    .btn-primary {
+        @apply bg-green-400;
+    }
+    .btn-secondary {
+        @apply bg-blue-400;
+    }
+    .btn-primary:hover{
+        @apply transition ease-in-out delay-150 bg-green-500 hover:scale-110 hover:bg-green-500 duration-300
+    }
+    .btn-secondary:hover{
+        @apply transition ease-in-out delay-150 bg-blue-500 hover:scale-110 hover:bg-blue-500 duration-300
+    }
+}
+
+body {
+    background-color: rgb(249 250 251 / 1);
+}
